@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+
 // Health check endpoint
 app.get('/', (req, res) => {
   res.json({ message: 'YouTube Downloader API is running' });
@@ -77,6 +78,9 @@ app.get('/api/download', async (req, res) => {
     // Set response headers for download
     res.setHeader('Content-Disposition', `attachment; filename="${title}.mp4"`);
     res.setHeader('Content-Type', 'video/mp4');
+
+
+
 
     // Stream the video
     const format = quality || 'highest';
